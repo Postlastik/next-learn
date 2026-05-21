@@ -405,6 +405,7 @@ git checkout -b prd/<slug>
 git add docs/requirements/draft/YYYY-MM-DD-<slug>.md
 git commit -m "docs(prd): draft requirements for <feature name>"
 git push -u origin prd/<slug>
+REPO=$(git remote get-url origin | sed 's/.*github\.com[:/]//' | sed 's/\.git$//')
 gh pr create --draft \
   --title "Draft PRD: <feature name>" \
   --body "PRD draft: <feature name>."
